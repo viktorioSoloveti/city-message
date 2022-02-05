@@ -61,5 +61,6 @@ export class ListItemComponent implements OnInit {
     @Output() liked = new EventEmitter<string>()
 
     ngOnInit(): void {
+        console.log('hi')
     }
 }
