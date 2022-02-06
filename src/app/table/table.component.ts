@@ -25,4 +25,8 @@ export class TableComponent implements OnInit {
     this.messageService.delete(id);
   }
 
+  liked(id: string){
+    this.messageService.liked(id)
+  }
+
 }

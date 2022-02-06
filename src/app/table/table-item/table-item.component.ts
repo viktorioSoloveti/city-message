@@ -50,6 +50,7 @@ export class TableItemComponent implements OnInit{
 
     @Input() messages: Message[];
     @Output() delete = new EventEmitter<string>()
+    @Output() liked = new EventEmitter<string>()
 
     ngOnInit(): void {
     }

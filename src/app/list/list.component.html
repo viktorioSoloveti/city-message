@@ -1,5 +1,8 @@
-<app-list-item 
-[messages]="messages$ | async" 
-(delete)="delete($event)"
-(liked)="liked($event)"
-></app-list-item>
+<app-view-header></app-view-header>
+<div class="wrapper">
+    <app-list-item
+    [messages]="messages$ | async" 
+    (delete)="delete($event)"
+    (liked)="liked($event)"
+    ></app-list-item>
+</div>
