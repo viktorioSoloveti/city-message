@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Message } from '../state/message.model';
 import { MessageQuery } from '../state/message.query';
@@ -14,7 +15,8 @@ export class TableComponent implements OnInit {
 
   constructor(
     private messageService: MessageService,
-    private messageQuery: MessageQuery
+    private messageQuery: MessageQuery,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +29,10 @@ export class TableComponent implements OnInit {
 
   liked(id: string){
     this.messageService.liked(id)
+  }
+
+  editMessage(id: string){
+    this.router.navigate(['edit/' + id]);
   }
 
 }

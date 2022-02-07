@@ -37,7 +37,8 @@ import { EventEmitter } from "@angular/core";
 
             <div class="mess_right">
                 <div class="button_block">
-                    <button type="button">
+                    <button type="button"
+                    (click)="editMessage.emit(message.id)">
                         <img src="assets/icons/edit.svg" alt="">
                     </button>
 
@@ -59,8 +60,8 @@ export class ListItemComponent implements OnInit {
     @Input() messages: Message[];
     @Output() delete = new EventEmitter<string>()
     @Output() liked = new EventEmitter<string>()
+    @Output() editMessage = new EventEmitter<string>()
 
     ngOnInit(): void {
-        console.log('hi')
     }
 }

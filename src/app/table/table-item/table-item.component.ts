@@ -27,7 +27,8 @@ import { Message } from "src/app/state/message.model";
                             </button>
                         </div>
                         <div class="head_right">
-                            <button type="button">
+                            <button type="button"
+                            (click)="editMessage.emit(message.id)">
                                 <img src="assets/icons/edit.svg" alt="">
                             </button>
 
@@ -49,8 +50,9 @@ import { Message } from "src/app/state/message.model";
 export class TableItemComponent implements OnInit{
 
     @Input() messages: Message[];
-    @Output() delete = new EventEmitter<string>()
-    @Output() liked = new EventEmitter<string>()
+    @Output() delete = new EventEmitter<string>();
+    @Output() liked = new EventEmitter<string>();
+    @Output() editMessage = new EventEmitter<string>();
 
     ngOnInit(): void {
     }

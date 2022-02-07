@@ -4,7 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ViewHeaderComponent } from './view-header/view-header.component';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
+import { InMessageService } from './http-in-memory/InMemoryDataService';
+import { delay } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -13,7 +17,10 @@ import { ViewHeaderComponent } from './view-header/view-header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMessageService, {delay: 500})
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

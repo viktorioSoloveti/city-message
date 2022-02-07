@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError, Observable } from 'rxjs';
 import { Message } from '../state/message.model';
 import { MessageQuery } from '../state/message.query';
 import { MessageService } from '../state/message.service';
@@ -14,19 +15,24 @@ export class ListComponent implements OnInit {
 
   constructor(
     private messageService: MessageService,
-    private messageQuery: MessageQuery
+    private messageQuery: MessageQuery,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.messages$ = this.messageQuery.selectAll();
   }
 
-  delete(id: string){
-    this.messageService.delete(id);
+  delete(id: string) {
+    this.messageService.delete(id).pipe().subscribe()
   }
-  
-  liked(id: string){
+
+  liked(id: string) {
     this.messageService.liked(id)
+  }
+
+  editMessage(id: string) {
+    this.router.navigate(['edit/' + id]);
   }
 
 }

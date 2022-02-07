@@ -4,24 +4,37 @@
             <button routerLink="/">
                 <img src="assets/icons/back.svg" alt="">
             </button>
-            <h1>Создание сообщения</h1>
+            <h1>{{adaptiveText[0]}} сообщения</h1>
         </div>
     </div>
 </div>
 <div class="wrapper">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="submitData()">
         <div class="inp_item">
             <h3>Тема сообщения</h3>
-            <input type="text">
+            <input type="text" formControlName="title">
         </div>
         <div class="inp_item">
             <h3>Текс сообщения</h3>
-            <textarea name="text" id="" cols="30" rows="10"></textarea>
+            <textarea name="text" id="" cols="30" rows="10" formControlName="text"></textarea>
         </div>
         <div class="inp_item">
             <h3>Ссылка на картинку</h3>
-            <input type="text">
+            <input type="text" formControlName="imageUrl">
         </div>
-        <button class="save">Создать</button>
+        <button class="save" type="submit">{{adaptiveText[1]}}</button>
     </form>
 </div>
+
+<!-- <div class="header">
+    <nav class="header__nav mr-2 color">
+        <ul class="header__items nav-list">
+            <li class="nav-list__item nav-list__item_active"></li>
+            <li class="nav-list__item nav-list__item_disable"></li>
+            <li class="nav-list__item"></li>
+        </ul>
+    </nav>
+    <div class="header__logo">
+        <img class="header__img">
+    </div>
+</div> -->
